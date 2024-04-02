@@ -1,65 +1,132 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Internship Form</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <style>
-    .form-group {
-      margin-bottom: 20px;
-    }
-  </style>
+    <style>
+        .error-message {
+            color: red;
+        }
+    </style>
 </head>
+
 <body>
+    <!-- Your HTML form here -->
+    <form id="internship-form">
+        <!-- Form fields -->
+        <label for="first-name-input">First Name:</label><br>
+        <input type="text" id="first-name-input" name="first-name"><br>
+        <!-- Error messages -->
+        <div id="first-name-feedback" class="error-message"></div><br>
 
-  <div class="container">
-    <h2>Internship Form</h2>
-    <form>
-      <div class="form-group">
-        <label for="first-name-input">First Name</label>
-        <input type="text" class="form-control" id="first-name-input" placeholder="Enter your first name" required>
-        <div class="invalid-feedback">Please provide your first name.</div>
-      </div>
-      <div class="form-group">
-        <label for="last-name-input">Last Name</label>
-        <input type="text" class="form-control" id="last-name-input" placeholder="Enter your last name" required>
-        <div class="invalid-feedback">Please provide your last name.</div>
-      </div>
-      <div class="form-group">
-        <label for="email-input">Email</label>
-        <input type="email" class="form-control" id="email-input" placeholder="Enter your email" required>
-        <div class="invalid-feedback">Please provide a valid email address.</div>
-      </div>
-      <div class="form-group">
-        <label for="college-input">College Name</label>
-        <input type="text" class="form-control" id="college-input" placeholder="Enter your college name" required>
-        <div class="invalid-feedback">Please provide your college name.</div>
-      </div>
-      <div class="form-group">
-        <label for="graduation-year-input">Graduation Year</label>
+        <label for="last-name-input">Last Name:</label><br>
+        <input type="text" id="last-name-input" name="last-name"><br>
+        <!-- Error messages -->
+        <div id="last-name-feedback" class="error-message"></div><br>
+
+        <label for="email-input">Email Address</label><br>
+        <input type="email" id="email-input" name="email" placeholder="xyz@abc.com" ><br>
+        <!-- Error messages -->
+        <div id="email-feedback" class="error-message"></div><br>
+		
+        <label for="college-input">College</label><br>
+        <input type="text" id="college-input" name="college"><br>
+        <!-- Error messages -->
+        <div id="college-feedback" class="error-message"></div><br>
+
+		        <label for="graduation-year-input">Graduation Year:</label><br>
         <select class="form-control" id="graduation-year-input" required>
-          <option value="" selected disabled>Select your graduation year</option>
-          <option value="2020">2020</option>
-          <option value="2021">2021</option>
-          <option value="2022">2022</option>
-          <option value="2023">2023</option>
-        </select>
-        <div class="invalid-feedback">Please select your graduation year.</div>
-      </div>
-      <div class="form-group">
-        <label for="roll-no-input">Roll No</label>
-        <input type="text" class="form-control" id="roll-no-input" placeholder="Enter your roll number" required>
-        <div class="invalid-feedback">Please provide your roll number.</div>
-      </div>
-      <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" id="conditions-checkbox" required>
-        <label class="form-check-label" for="conditions-checkbox">I agree to the terms and conditions</label>
-        <div class="invalid-feedback">You must agree to the terms and conditions.</div>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-  </div>
+            <option value="" selected disabled>Choose...</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+        </select><br>
+        <!-- Error messages -->
+        <div id="graduation-year-feedback" class="error-message"></div><br>
 
+
+
+        <label for="roll-no-input">Roll No:</label><br>
+        <input type="text" id="roll-no-input" name="roll-no"><br>
+        <!-- Error messages -->
+        <div id="roll-no-feedback" class="error-message"></div><br>
+
+        <input type="checkbox" id="conditions-checkbox" name="conditions">
+        <label for="conditions-checkbox">I accept the conditions</label><br>
+        <!-- Error messages -->
+        <div id="conditions-feedback" class="error-message"></div><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        document.getElementById('internship-form').addEventListener('submit', function(event) {
+            // Get form fields
+            var firstNameInput = document.getElementById('first-name-input');
+            var lastNameInput = document.getElementById('last-name-input');
+            var emailInput = document.getElementById('email-input');
+            var collegeInput = document.getElementById('college-input');
+            var rollNoInput = document.getElementById('roll-no-input');
+			var graduationYearInput = document.getElementById('graduation-year-input');
+
+            var conditionsCheckbox = document.getElementById('conditions-checkbox');
+
+            // Check if first name is empty
+            if (!firstNameInput.value.trim()) {
+                document.getElementById('first-name-feedback').textContent = 'First name is required.';
+                event.preventDefault(); // Prevent form submission
+            } else {
+                document.getElementById('first-name-feedback').textContent = ''; // Clear error message
+            }
+
+            // Check if last name is empty
+            if (!lastNameInput.value.trim()) {
+                document.getElementById('last-name-feedback').textContent = 'Last name is required.';
+                event.preventDefault(); // Prevent form submission
+            } else {
+                document.getElementById('last-name-feedback').textContent = ''; // Clear error message
+            }
+
+            // Check if email is empty
+            if (!emailInput.value.trim()) {
+                document.getElementById('email-feedback').textContent = 'Email required.';
+                event.preventDefault(); // Prevent form submission
+            } else {
+                document.getElementById('email-feedback').textContent = ''; // Clear error message
+            }
+
+            // Check if college name is empty
+            if (!collegeInput.value.trim()) {
+                document.getElementById('college-feedback').textContent = 'Please provide a valid college.';
+                event.preventDefault(); // Prevent form submission
+            } else {
+                document.getElementById('college-feedback').textContent = ''; // Clear error message
+            }
+
+			 if (!collegeInput.value.trim()) {
+                document.getElementById('college-feedback').textContent = 'Please select a valid Graduation Year.';
+                event.preventDefault(); // Prevent form submission
+            } else {
+                document.getElementById('college-feedback').textContent = ''; // Clear error message
+            }
+			
+            // Check if roll no is empty
+            if (!rollNoInput.value.trim()) {
+                document.getElementById('roll-no-feedback').textContent = 'Please provide a valid Roll No';
+                event.preventDefault(); // Prevent form submission
+            } else {
+                document.getElementById('roll-no-feedback').textContent = ''; // Clear error message
+            }
+
+            // Check if conditions checkbox is not checked
+            if (!conditionsCheckbox.checked) {
+                document.getElementById('conditions-feedback').textContent = 'Please accept the conditions.';
+                event.preventDefault(); // Prevent form submission
+            } else {
+                document.getElementById('conditions-feedback').textContent = ''; // Clear error message
+            }
+        });
+    </script>
 </body>
+
 </html>
