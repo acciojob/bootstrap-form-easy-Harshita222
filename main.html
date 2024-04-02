@@ -23,19 +23,24 @@
         <!-- Error messages -->
         <div id="last-name-feedback" class="error-message"></div><br>
 
-        <label for="email-input">Email Address</label><br>
-        <input type="email" id="email-input" name="email" placeholder="xyz@abc.com"required ><br>
+        <label for="email-input">Email:</label><br>
+        <input type="email" id="email-input" name="email" required><br>
         <!-- Error messages -->
         <div id="email-feedback" class="error-message"></div><br>
-		
-        <label for="college-input">College</label><br>
+
+        <label for="college-input">College Name:</label><br>
         <input type="text" id="college-input" name="college" required><br>
         <!-- Error messages -->
         <div id="college-feedback" class="error-message"></div><br>
 
-		        <label for="grad-year-select">Graduation Year:</label><br>
+        <label for="roll-no-input">Roll No:</label><br>
+        <input type="text" id="roll-no-input" name="roll-no" required><br>
+        <!-- Error messages -->
+        <div id="roll-no-feedback" class="error-message"></div><br>
+
+        <label for="graduation-year-input">Graduation Year:</label><br>
         <select class="form-control" id="graduation-year-input" required>
-            <option value="" selected disabled>Choose...</option>
+            <option value="" selected disabled>Select your graduation year</option>
             <option value="2020">2020</option>
             <option value="2021">2021</option>
             <option value="2022">2022</option>
@@ -43,13 +48,6 @@
         </select><br>
         <!-- Error messages -->
         <div id="graduation-year-feedback" class="error-message"></div><br>
-
-
-
-        <label for="roll-no-input">Roll No:</label><br>
-        <input type="text" id="roll-no-input" name="roll-no" required><br>
-        <!-- Error messages -->
-        <div id="roll-no-feedback" class="error-message"></div><br>
 
         <input type="checkbox" id="conditions-checkbox" name="conditions" required>
         <label for="conditions-checkbox">I accept the conditions</label><br>
@@ -67,8 +65,7 @@
             var emailInput = document.getElementById('email-input');
             var collegeInput = document.getElementById('college-input');
             var rollNoInput = document.getElementById('roll-no-input');
-			var graduationYearInput = document.getElementById('graduation-year-input');
-
+            var graduationYearInput = document.getElementById('graduation-year-input');
             var conditionsCheckbox = document.getElementById('conditions-checkbox');
 
             // Check if first name is empty
@@ -89,7 +86,7 @@
 
             // Check if email is empty
             if (!emailInput.value.trim()) {
-                document.getElementById('email-feedback').textContent = 'Email required.';
+                document.getElementById('email-feedback').textContent = 'Email is required.';
                 event.preventDefault(); // Prevent form submission
             } else {
                 document.getElementById('email-feedback').textContent = ''; // Clear error message
@@ -97,25 +94,26 @@
 
             // Check if college name is empty
             if (!collegeInput.value.trim()) {
-                document.getElementById('college-feedback').textContent = 'Please provide a valid college.';
+                document.getElementById('college-feedback').textContent = 'College name is required.';
                 event.preventDefault(); // Prevent form submission
             } else {
                 document.getElementById('college-feedback').textContent = ''; // Clear error message
             }
 
-			 if (!collegeInput.value.trim()) {
-                document.getElementById('college-feedback').textContent = 'Please select a valid Graduation Year.';
-                event.preventDefault(); // Prevent form submission
-            } else {
-                document.getElementById('college-feedback').textContent = ''; // Clear error message
-            }
-			
             // Check if roll no is empty
             if (!rollNoInput.value.trim()) {
-                document.getElementById('roll-no-feedback').textContent = 'Please provide a valid Roll No';
+                document.getElementById('roll-no-feedback').textContent = 'Roll No is required.';
                 event.preventDefault(); // Prevent form submission
             } else {
                 document.getElementById('roll-no-feedback').textContent = ''; // Clear error message
+            }
+
+            // Check if graduation year is not selected
+            if (!graduationYearInput.value) {
+                document.getElementById('graduation-year-feedback').textContent = 'Please select your graduation year.';
+                event.preventDefault(); // Prevent form submission
+            } else {
+                document.getElementById('graduation-year-feedback').textContent = ''; // Clear error message
             }
 
             // Check if conditions checkbox is not checked
