@@ -2,17 +2,24 @@
 <html>
 
 <head>
-    <style>
+    <!-- <style>
         .error-message {
             color: red;
         }
-    </style>
+    </style> -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+
 </head>
 
 <body>
-    <!-- Your HTML form here -->
-    <form id="internship-form">
+
         <!-- Form fields -->
+		<div class="form-group">
+    <label for="first-name-input">First Name:</label>
+    <input type="text" class="form-control" id="first-name-input" name="first-name" required>
+    <div class="invalid-feedback">First name is required.</div>
+</div>
         <label for="first-name-input">First Name:</label><br>
         <input type="text" id="first-name-input" name="first-name" required><br>
         <!-- Error messages -->
@@ -39,7 +46,7 @@
         <div id="roll-no-feedback" class="error-message"></div><br>
 
         <label for="graduation-year-input">Graduation Year:</label><br>
-        <select class="form-control" id="graduation-year-input" required>
+        <select id="graduation-year-input" required>
             <option value="" selected disabled>Select your graduation year</option>
             <option value="2020">2020</option>
             <option value="2021">2021</option>
@@ -57,74 +64,7 @@
         <input type="submit" value="Submit">
     </form>
 
-    <script>
-        document.getElementById('internship-form').addEventListener('submit', function(event) {
-            // Get form fields
-            var firstNameInput = document.getElementById('first-name-input');
-            var lastNameInput = document.getElementById('last-name-input');
-            var emailInput = document.getElementById('email-input');
-            var collegeInput = document.getElementById('college-input');
-            var rollNoInput = document.getElementById('roll-no-input');
-            var graduationYearInput = document.getElementById('graduation-year-input');
-            var conditionsCheckbox = document.getElementById('conditions-checkbox');
-
-            // Check if first name is empty
-            if (!firstNameInput.value.trim()) {
-                document.getElementById('first-name-feedback').textContent = 'First name is required.';
-                event.preventDefault(); // Prevent form submission
-            } else {
-                document.getElementById('first-name-feedback').textContent = ''; // Clear error message
-            }
-
-            // Check if last name is empty
-            if (!lastNameInput.value.trim()) {
-                document.getElementById('last-name-feedback').textContent = 'Last name is required.';
-                event.preventDefault(); // Prevent form submission
-            } else {
-                document.getElementById('last-name-feedback').textContent = ''; // Clear error message
-            }
-
-            // Check if email is empty
-            if (!emailInput.value.trim()) {
-                document.getElementById('email-feedback').textContent = 'Email is required.';
-                event.preventDefault(); // Prevent form submission
-            } else {
-                document.getElementById('email-feedback').textContent = ''; // Clear error message
-            }
-
-            // Check if college name is empty
-            if (!collegeInput.value.trim()) {
-                document.getElementById('college-feedback').textContent = 'College name is required.';
-                event.preventDefault(); // Prevent form submission
-            } else {
-                document.getElementById('college-feedback').textContent = ''; // Clear error message
-            }
-
-            // Check if roll no is empty
-            if (!rollNoInput.value.trim()) {
-                document.getElementById('roll-no-feedback').textContent = 'Roll No is required.';
-                event.preventDefault(); // Prevent form submission
-            } else {
-                document.getElementById('roll-no-feedback').textContent = ''; // Clear error message
-            }
-
-            // Check if graduation year is not selected
-            if (!graduationYearInput.value) {
-                document.getElementById('graduation-year-feedback').textContent = 'Please select your graduation year.';
-                event.preventDefault(); // Prevent form submission
-            } else {
-                document.getElementById('graduation-year-feedback').textContent = ''; // Clear error message
-            }
-
-            // Check if conditions checkbox is not checked
-            if (!conditionsCheckbox.checked) {
-                document.getElementById('conditions-feedback').textContent = 'Please accept the conditions.';
-                event.preventDefault(); // Prevent form submission
-            } else {
-                document.getElementById('conditions-feedback').textContent = ''; // Clear error message
-            }
-        });
-    </script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </body>
 
 </html>
