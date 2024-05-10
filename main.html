@@ -13,39 +13,35 @@
 </head>
 
 <body>
-
         <!-- Form fields -->
 		<div class="form-group">
-    <label for="first-name-input">First Name:</label>
-    <input type="text" class="form-control" id="first-name-input" name="first-name" required>
-    <div class="invalid-feedback">First name is required.</div>
-</div>
-        <label for="first-name-input">First Name:</label><br>
-        <input type="text" id="first-name-input" name="first-name" required><br>
-        <!-- Error messages -->
-        <div id="first-name-feedback" class="error-message"></div><br>
 
-        <label for="last-name-input">Last Name:</label><br>
-        <input type="text" id="last-name-input" name="last-name" required><br>
+        <label for="first-name-input">First Name:</label>
+        <input type="text" id="first-name-input" name="first-name" required>
         <!-- Error messages -->
-        <div id="last-name-feedback" class="error-message"></div><br>
+        <!-- <div id="first-name-feedback" class="error-message"></div><br> -->
 
-        <label for="email-input">Email:</label><br>
-        <input type="email" id="email-input" name="email" required><br>
+        <label for="last-name-input">Last Name:</label>
+        <input type="text" id="last-name-input" name="last-name" required>
         <!-- Error messages -->
-        <div id="email-feedback" class="error-message"></div><br>
+        <!-- <div id="last-name-feedback" class="error-message"></div><br> -->
 
-        <label for="college-input">College Name:</label><br>
+        <label for="email-input">Email Address</label>
+        <input type="email" id="email-input" name="email" required>
+        <!-- Error messages -->
+        <!-- <div id="email-feedback" class="error-message"></div><br> -->
+
+        <label for="college-input">College Name:</label>
         <input type="text" id="college-input" name="college" required><br>
         <!-- Error messages -->
-        <div id="college-feedback" class="error-message"></div><br>
+        <!-- <div id="college-feedback" class="error-message"></div><br> -->
 
-        <label for="roll-no-input">Roll No:</label><br>
-        <input type="text" id="roll-no-input" name="roll-no" required><br>
+        <label for="roll-no-input">Roll No:</label>
+        <input type="text" id="roll-no-input" name="roll-no" required>
         <!-- Error messages -->
-        <div id="roll-no-feedback" class="error-message"></div><br>
+        <!-- <div id="roll-no-feedback" class="error-message"></div><br> -->
 
-        <label for="graduation-year-input">Graduation Year:</label><br>
+        <label for="graduation-year-input">Graduation Year:</label>
         <select id="graduation-year-input" required>
             <option value="" selected disabled>Select your graduation year</option>
             <option value="2020">2020</option>
@@ -54,14 +50,15 @@
             <option value="2023">2023</option>
         </select><br>
         <!-- Error messages -->
-        <div id="graduation-year-feedback" class="error-message"></div><br>
+        <!-- <div id="graduation-year-feedback" class="error-message"></div><br> -->
 
         <input type="checkbox" id="conditions-checkbox" name="conditions" required>
         <label for="conditions-checkbox">I accept the conditions</label><br>
         <!-- Error messages -->
         <div id="conditions-feedback" class="error-message"></div><br>
 
-        <input type="submit" value="Submit">
+        <!-- <input type="submit" value="Submit"> -->
+			<button type="submit">Submit form</button>
     </form>
 
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
